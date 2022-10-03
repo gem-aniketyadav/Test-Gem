@@ -9,24 +9,13 @@ node {
 
         nodejs('NodeJs') {
     // some block
-    sh 'npm install'
-    sh 'ng build --prod'
+            sh 'npm install'
+            sh 'ng build --prod'
+            echo "build sccess"
     // sh 'docker build -t demo:latest .'
-}
+        }
         
     }
-
-
-    // stage('Lint') {
-    //     sh 'ng lint'
-    // }
-
-    // stage('Build') {
-    //     milestone()
-    //     sh 'ng build --prod'
-    // }
-
-
     stage('Deploy') {
         echo "Deploying..."
     }
