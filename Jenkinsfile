@@ -11,6 +11,7 @@ node {
     // some block
     sh 'npm install'
     sh 'ng build --prod'
+    sh 'docker build -t demo:latest'
 }
         
     }
