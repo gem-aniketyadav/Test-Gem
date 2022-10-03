@@ -4,12 +4,13 @@ node {
         deleteDir()
         checkout scm
     }
-nodejs('NodeJs') {
-    // some block
-}
+
     stage('NPM Install') {
 
-            sh 'npm install'
+        nodejs('NodeJs') {
+    // some block
+    sh 'npm install'
+}
         
     }
 
