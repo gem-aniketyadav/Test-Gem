@@ -10,6 +10,7 @@ node {
         nodejs('NodeJs') {
     // some block
     sh 'npm install'
+    sh 'ng build --prod'
 }
         
     }
@@ -19,10 +20,10 @@ node {
     //     sh 'ng lint'
     // }
 
-    stage('Build') {
-        milestone()
-        sh 'ng build --prod '
-    }
+    // stage('Build') {
+    //     milestone()
+    //     sh 'ng build --prod'
+    // }
 
 
     stage('Deploy') {
