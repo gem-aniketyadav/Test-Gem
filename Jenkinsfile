@@ -9,8 +9,8 @@ node {
 
         nodejs('NodeJs') {
     // some block
-            sh 'npm install'
-            sh 'ng build --prod'
+            bat 'npm install'
+            bat 'ng build --prod'
             echo "build sccess"
     // sh 'docker build -t demo:latest .'
         }
