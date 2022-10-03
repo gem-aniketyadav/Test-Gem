@@ -12,7 +12,9 @@ node {
             bat 'npm install'
             bat 'ng build --prod'
             echo "build sccess"
-            bat 'docker build -t demo:latest .'
+            bat 'docker login -u "admin" -p "admin" 127.0.0.1:8082'
+            bat 'docker build -t 127.0.0.1:8082/repository/images/myapp:latest .'
+            bat 'docker push 127.0.0.1:8082/repository/images/myapp:latest'
         }
         
     }
