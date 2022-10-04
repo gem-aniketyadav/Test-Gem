@@ -22,7 +22,7 @@ node {
         }
         kubeconfig(credentialsId: 'mykubeconfig', serverUrl: 'https://127.0.0.1:60735') {
     // some block
-    bat 'kubectl apply -f deployment.yaml'
+        kubectl apply -f deployment.yaml
 }
         
     }
