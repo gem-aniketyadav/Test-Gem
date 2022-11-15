@@ -20,11 +20,11 @@ node {
             // bat 'kubectl apply -f deployment.yaml'
 
         }
-        kubeconfig(credentialsId: 'mykubeconfig', serverUrl: 'https://127.0.0.1:50321') {
-    // some block
-        // bat 'kubectl delete deployment angular-deployment'
-        bat 'kubectl apply -f deployment.yaml'
-}
+//         kubeconfig(credentialsId: 'mykubeconfig', serverUrl: 'https://127.0.0.1:50321') {
+//     // some block
+//         // bat 'kubectl delete deployment angular-deployment'
+//         bat 'kubectl apply -f deployment.yaml'
+// }
         
     }
     stage('Deploy') {
