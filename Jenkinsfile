@@ -9,7 +9,8 @@ node {
 
         nodejs('NodeJs') {
     // some block
-            bat 'npm i @angular/cli@14.20'
+            bat 'npm install'
+            bat 'npm install -g @angular/cli@16.13
             bat 'ng build --prod'
             echo "build sccess"
 //             bat 'docker login -u "admin" -p "admin" 127.0.0.1:5000'
