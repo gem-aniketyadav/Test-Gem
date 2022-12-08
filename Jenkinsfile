@@ -12,7 +12,7 @@ stage('Quality Gate') {
     timeout (time: 1, unit: 'HOURS') {
       waitForQualityGate abortPipeline: true
       echo "code is good"
-      def getURL = readProperties file: './target/sonar/report-task.txt'
+      def getURL = readProperties file: '.sonarscanner/report-task.txt'
       echo "${getURL['dashboardUrl']}"
     }
 }
