@@ -1,4 +1,5 @@
- stage('SCM') {
+node {
+  stage('SCM') {
     checkout scm
   }
   stage('SonarQube Analysis') {
@@ -13,6 +14,7 @@ stage('Quality Gate') {
       waitForQualityGate abortPipeline: true
     }
   }
+}
 }
 node {
     stage('Checkout') {
