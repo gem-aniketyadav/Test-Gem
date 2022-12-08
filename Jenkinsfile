@@ -11,6 +11,10 @@ node {
 stage('Quality Gate') {
     timeout (time: 1, unit: 'HOURS') {
       waitForQualityGate abortPipeline: true
+      echo "code is good"
+      def getURL = readProperties file: './.scannerwork/report-task.txt'
+      sonarqubeURL = "${getURL['dashboardUrl']}"
+      echo "${sonarqubeURL }"
     }
 }
 }
