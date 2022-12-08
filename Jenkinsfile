@@ -16,7 +16,7 @@ stage('Quality Gate') {
       sonarqubeURL = "${getURL['dashboardUrl']}"
       echo "${sonarqubeURL }"
 //       bat 'echo "${sonarqubeURL}" > report.html'
-      bat '<a href="http://localhost:9000/dashboard?id=test-2">Link</a>'
+      bat '<a href="http://localhost:9000/dashboard?id=test-2">Link</a> > link.html'
       archiveArtifacts artifacts: 'report.html', onlyIfSuccessful: true
     }
 }
