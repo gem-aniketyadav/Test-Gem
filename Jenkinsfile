@@ -14,7 +14,7 @@ stage('Quality Gate') {
       echo "code is good"
       def getURL = readProperties file: './.scannerwork/report-task.txt'
       sonarqubeURL = "${getURL['dashboardUrl']}"
-      echo "${sonarqubeURL }" > report.properties
+      sh 'echo "${sonarqubeURL }" > report.properties'
 //       bat 'echo ${sonarqubeURL} > report.properties'
       archiveArtifacts artifacts: 'report.properties', onlyIfSuccessful: true
     }
