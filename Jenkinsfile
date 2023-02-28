@@ -1,26 +1,26 @@
-node {
-  stage('SCM') {
-    checkout scm
-  }
-  stage('SonarQube Analysis') {
-    def scannerHome = tool 'SonarScanner';
-    withSonarQubeEnv() {
-      bat "${scannerHome}/bin/sonar-scanner"
-    }
-  }
-stage('Quality Gate') {
-    timeout (time: 1, unit: 'HOURS') {
-      waitForQualityGate abortPipeline: true
-      echo "code is good"
-      def getURL = readProperties file: './.scannerwork/report-task.txt'
-      sonarqubeURL = "${getURL['dashboardUrl']}"
-      echo "${sonarqubeURL}"
-      bat 'echo env.sonarqubeURL > report.properties'
-//       bat 'echo ${sonarqubeURL} > report.properties'
-      archiveArtifacts artifacts: 'report.properties', onlyIfSuccessful: true
-    }
-}
-}
+// node {
+//   stage('SCM') {
+//     checkout scm
+//   }
+//   stage('SonarQube Analysis') {
+//     def scannerHome = tool 'SonarScanner';
+//     withSonarQubeEnv() {
+//       bat "${scannerHome}/bin/sonar-scanner"
+//     }
+//   }
+// stage('Quality Gate') {
+//     timeout (time: 1, unit: 'HOURS') {
+//       waitForQualityGate abortPipeline: true
+//       echo "code is good"
+//       def getURL = readProperties file: './.scannerwork/report-task.txt'
+//       sonarqubeURL = "${getURL['dashboardUrl']}"
+//       echo "${sonarqubeURL}"
+//       bat 'echo env.sonarqubeURL > report.properties'
+// //       bat 'echo ${sonarqubeURL} > report.properties'
+//       archiveArtifacts artifacts: 'report.properties', onlyIfSuccessful: true
+//     }
+// }
+// }
 node {
     stage('Checkout') {
         
