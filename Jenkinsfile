@@ -28,7 +28,7 @@ node {
   stage('SonarQube Analysis') {
     def scannerHome = tool 'SonarScanner';
     withSonarQubeEnv() {
-      sh "${scannerHome}/bin/sonar-scanner"
+      bat "${scannerHome}/bin/sonar-scanner"
     }
   }
   stage('Quality Gate') {
@@ -48,7 +48,7 @@ node {
 
     stage('NPM Install') {
 
-        nodejs('NodeJs') {
+//         nodejs('NodeJs') {
     // some block
 //             bat 'npm install'
 //             bat 'ng build --prod'
