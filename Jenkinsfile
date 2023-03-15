@@ -23,6 +23,7 @@
 // }
 node {
   stage('SCM') {
+    cleanWs()
     checkout scm
   }
   stage('SonarQube Analysis') {
