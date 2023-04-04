@@ -21,24 +21,24 @@
 //     }
 // }
 // }
-node {
-  stage('SCM') {
-    cleanWs()
-    checkout scm
-  }
-  stage('SonarQube Analysis') {
-    def scannerHome = tool 'SonarScanner';
-    withSonarQubeEnv() {
-      bat "${scannerHome}/bin/sonar-scanner"
-    }
-  }
-  stage('Quality Gate') {
-    timeout (time: 3, unit: 'MINUTES') {
-      waitForQualityGate abortPipeline: true
-      echo "code is good"
-    }
-  }
-}
+// node {
+//   stage('SCM') {
+//     cleanWs()
+//     checkout scm
+//   }
+//   stage('SonarQube Analysis') {
+//     def scannerHome = tool 'SonarScanner';
+//     withSonarQubeEnv() {
+//       bat "${scannerHome}/bin/sonar-scanner"
+//     }
+//   }
+//   stage('Quality Gate') {
+//     timeout (time: 3, unit: 'MINUTES') {
+//       waitForQualityGate abortPipeline: true
+//       echo "code is good"
+//     }
+//   }
+// }
 
 node {
     stage('Checkout') {
