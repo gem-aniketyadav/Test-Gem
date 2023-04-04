@@ -41,6 +41,14 @@
 // }
 
 node {
+  
+  stage('Build_cause') {
+    def causes = currentBuild.rawBuild.getCauses()
+    def buildCause = causes.size() > 0 ? causes[0].getShortDescription() : "Unknown"
+    env.BUILD_CAUSE = buildCause
+    println "Build Cause: ${env.BUILD_CAUSE}"
+  }
+  
     stage('Checkout') {
         
         deleteDir()
@@ -48,7 +56,7 @@ node {
     }
 
     stage('NPM Install') {
-
+        
 //         nodejs('NodeJs') {
     // some block
 //             bat 'npm install'
