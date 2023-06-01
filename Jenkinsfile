@@ -53,4 +53,9 @@ node {
     stage('Deploy') {
         echo "Deploying..."
     }
+  stage('OWASP Dependency Check') {
+      steps {
+          dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+      }
+  }
 }
